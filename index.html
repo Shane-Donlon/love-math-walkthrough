@@ -39,15 +39,18 @@
         <!-- heading-area -->
         <div class="game-area">
           <div class="controls-area">
-            <button class="btn btn-big--add btn-game">
+            <button class="btn btn-big--add btn-game" data-type="addition">
               <i class="fas fa-plus"></i>
             </button>
-            <button class="btnb btn-big--minus btn-game">
+            <button
+              class="btnb btn-big--minus btn-game"
+              data-type="subtraction"
+            >
               <i class="fas fa-minus"></i></button
-            ><button class="btn btn-big--multiply btn-game">
+            ><button class="btn btn-big--multiply btn-game" data-type="muliply">
               <i class="fas fa-times"></i>
             </button>
-            <button class="btn btn-big--divide btn-game">
+            <button class="btn btn-big--divide btn-game" data-type="divide">
               <i class="fas fa-divide"></i>
             </button>
           </div>
@@ -65,7 +68,9 @@
               class="answer-box"
             />
           </div>
-          <button class="btn submit btn-submit">Submit Answer</button>
+          <button class="btn submit btn-submit" data-type="submit">
+            Submit Answer
+          </button>
           <!-- question-area -->
         </div>
         <!-- game-area -->
