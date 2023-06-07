@@ -10,13 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
         runGame(`${gameType}`);
       }
     });
+    runGame("addition");
+  });
+  let answerBox = document.querySelector(".answer-box");
+  answerBox.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      return checkAnswer();
+    } else return;
   });
 });
 /** The main game "loop  called when the script is first loaded"
  * and after the users' answer proceeds
  */
 function runGame(gameType) {
-  document.querySelector(".answer-box").value = "";
+  document.querySelector(".answer-box").focus();
   let num1 = Math.floor(Math.random() * 25) + 1;
   let num2 = Math.floor(Math.random() * 25) + 1;
 
@@ -26,6 +33,8 @@ function runGame(gameType) {
     displaySubtractQuestion(num1, num2);
   } else if (gameType === "multiply") {
     displayMultiplyQuestion(num1, num2);
+  } else if (gameType === "divide" && num1 <= num2) {
+    runGame("divide");
   } else if (gameType === "divide") {
     displayDivideQuestion(num1, num2);
   } else if (gameType === "submit") {
@@ -35,7 +44,10 @@ function runGame(gameType) {
     throw `Unknown game type: ${gameType}. Aborting`;
   }
 }
-
+function clearAnswerbox() {
+  let answerBox = document.querySelector(".answer-box");
+  answerBox.value = "";
+}
 function checkAnswer() {
   let userAnswer = parseInt(document.querySelector(".answer-box").value);
   let calculatedAnswer = calculateCorrectAnswer();
@@ -43,11 +55,13 @@ function checkAnswer() {
   if (isCorrect) {
     alert("Hey! you got it right! :D");
     incrementScore();
+    clearAnswerbox();
   } else {
     alert(
       `Awh you answered ${userAnswer}. The correct answer is ${calculatedAnswer[0]}`
     );
     incrementWrongAnswer();
+    clearAnswerbox();
   }
   runGame(calculatedAnswer[1]);
 }
@@ -64,7 +78,7 @@ function calculateCorrectAnswer() {
   } else if (operator === "x") {
     return [operand1 * operand2, "multiply"];
   } else if (operator === "/") {
-    return [operand1 / operand2, "divide"];
+    return [Math.floor(operand1 / operand2), "divide"];
   } else {
     alert(`Unimplemented opertator ${operator}`);
     throw `Unimplemented opertator ${operator}.Aborting`;
@@ -103,6 +117,9 @@ function displayMultiplyQuestion(operand1, operand2) {
   let operator = (document.querySelector(".operator").textContent = "x");
 }
 function displayDivideQuestion(operand1, operand2) {
+  if (operand1 < operand2) {
+    displayDivideQuestion(num1, num2);
+  }
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "/");
