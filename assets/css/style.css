@@ -133,6 +133,16 @@ p {
 .fas {
   font-size: 3em;
 }
+.correct-answer-span,
+.incorrect-answer-span {
+  font-weight: 700;
+}
+.correct-answer-span {
+  color: green;
+}
+.incorrect-answer-span {
+  color: red;
+}
 @media (width < 799px) {
   .heading-area {
     gap: 0.25em;

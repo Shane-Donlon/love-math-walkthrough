@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
  * and after the users' answer proceeds
  */
 function runGame(gameType) {
+  document.querySelector(".answer-box").value = "";
   let num1 = Math.floor(Math.random() * 25) + 1;
   let num2 = Math.floor(Math.random() * 25) + 1;
 
@@ -49,10 +50,6 @@ function checkAnswer() {
     incrementWrongAnswer();
   }
   runGame(calculatedAnswer[1]);
-}
-
-function clearAnswerBox() {
-  document.querySelector(".answer-box").value = "";
 }
 
 function calculateCorrectAnswer() {
@@ -94,23 +91,19 @@ function displayAdditionQuestion(operand1, operand2) {
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "+");
-  clearAnswerBox();
 }
 function displaySubtractQuestion(operand1, operand2) {
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "-");
-  clearAnswerBox();
 }
 function displayMultiplyQuestion(operand1, operand2) {
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "x");
-  clearAnswerBox();
 }
 function displayDivideQuestion(operand1, operand2) {
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "/");
-  clearAnswerBox();
 }
