@@ -51,6 +51,10 @@ function checkAnswer() {
   runGame(calculatedAnswer[1]);
 }
 
+function clearAnswerBox() {
+  document.querySelector(".answer-box").value = "";
+}
+
 function calculateCorrectAnswer() {
   let operand1 = parseInt(document.querySelector(".operand1").innerText);
   let operand2 = parseInt(document.querySelector(".operand2").innerText);
@@ -90,31 +94,23 @@ function displayAdditionQuestion(operand1, operand2) {
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "+");
-  console.log(operand1, "op1");
-  console.log(operand2, "op2");
-  console.log(operator, "operator");
+  clearAnswerBox();
 }
 function displaySubtractQuestion(operand1, operand2) {
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "-");
-  console.log(operand1, "op1");
-  console.log(operand2, "op2");
-  console.log(operator, "operator");
+  clearAnswerBox();
 }
 function displayMultiplyQuestion(operand1, operand2) {
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "x");
-  console.log(operand1, "op1");
-  console.log(operand2, "op2");
-  console.log(operator, "operator");
+  clearAnswerBox();
 }
 function displayDivideQuestion(operand1, operand2) {
   document.querySelector(".operand1").textContent = operand1;
   document.querySelector(".operand2").textContent = operand2;
   let operator = (document.querySelector(".operator").textContent = "/");
-  console.log(operand1, "op1");
-  console.log(operand2, "op2");
-  console.log(operator, "operator");
+  clearAnswerBox();
 }
