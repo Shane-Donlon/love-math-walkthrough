@@ -36,9 +36,11 @@ p {
 
 .btn-game {
   --height: 6em;
+  --bg-clr: transparent;
   height: var(--height);
   width: var(--height);
   border-radius: 50%;
+  background-color: var(--bg-clr);
   border: 8px solid var(--clr, black);
 }
 
@@ -51,6 +53,8 @@ p {
 .btn-big--add:hover,
 .btn-big--add:active {
   --clr: darkgreen;
+  --bg-clr: var(--clr);
+  color: white;
 }
 
 .btn-big--minus {
@@ -62,6 +66,8 @@ p {
 .btn-big--minus:hover,
 .btn-big--minus:active {
   --clr: darkblue;
+  --bg-clr: var(--clr);
+  color: white;
 }
 
 .btn-big--multiply {
@@ -73,6 +79,8 @@ p {
 .btn-big--multiply:hover,
 .btn-big--multiply:active {
   --clr: darkorange;
+  --bg-clr: var(--clr);
+  color: white;
 }
 
 .btn-big--divide {
@@ -85,6 +93,8 @@ p {
 .btn-big--divide:hover,
 .btn-big--divide:active {
   --clr: maroon;
+  --bg-clr: var(--clr);
+  color: white;
 }
 
 .heading {
